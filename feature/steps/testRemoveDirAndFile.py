@@ -79,3 +79,14 @@ def step_impl(context):
     file_data = file_data.decode("utf-8")
     assert data == file_data
 
+# 5
+@when("I call method with param <file_path> which check exist file or dir")
+def step_impl(context):
+    global removeDirAndFile, file_path
+    removeDirAndFile.checkExistFileOrDir(file_path)
+
+
+@then("File or dir with a path <file_path> exist")
+def step_impl(context):
+    global file_path
+    assert path.exists(file_path) is True
