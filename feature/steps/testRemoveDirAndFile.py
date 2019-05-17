@@ -63,3 +63,19 @@ def step_impl(context):
     global removeDirAndFile, dir_path
     assert path.exists(dir_path) is False
 
+# 4
+data = "000000000000000000000000000000"
+@when("I call method with param <file_path> which write <data> to file")
+def step_impl(context):
+    global removeDirAndFile, file_path
+    removeDirAndFile.fillFile(file_path, data)
+
+
+@then("File with a path <file_path> was filled with <data>")
+def step_impl(context):
+    global file_path, data
+    my_file = open(file_path, O_RDWR)
+    file_data = read(my_file, len(data))
+    file_data = file_data.decode("utf-8")
+    assert data == file_data
+
