@@ -12,7 +12,7 @@ Feature: Checking RemoveDirAndFile creation and working
       When I call method with param <file_path> which remove file
       Then File with a path <file_path> was remove
       
-  #3
+#3
   Scenario: Checking remove dir
      Given I have a dir with a path <dir_path>
       When I call method with param <dir_path> which remove dir
@@ -24,3 +24,8 @@ Feature: Checking RemoveDirAndFile creation and working
       When I call method with param <file_path> which write <data> to file
       Then File with a path <file_path> was filled with <data>
 
+#5
+  Scenario: Checking exist file
+     Given I have a file with a path <file_path>
+      When I call method with param <file_path> which check exist file or dir
+      Then File or dir with a path <file_path> exist
