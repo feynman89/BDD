@@ -11,3 +11,9 @@ Feature: Checking RemoveDirAndFile creation and working
      Given I have a file with a path <file_path>
       When I call method with param <file_path> which remove file
       Then File with a path <file_path> was remove
+      
+  #3
+  Scenario: Checking remove dir
+     Given I have a dir with a path <dir_path>
+      When I call method with param <dir_path> which remove dir
+      Then Dir with a path <dir_path> was remove
