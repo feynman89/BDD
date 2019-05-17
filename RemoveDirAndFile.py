@@ -20,3 +20,39 @@ class RemoveDirAndFile(object):
         
     def checkExistFileOrDir(self, file_path):
         return path.exists(file_path)
+
+
+if __name__ == '__main__':
+    r = RemoveDirAndFile()
+
+    while True:
+        print("Введите, что удалить файл или каталог: ")
+        variant = input()
+
+        if variant == "файл" or variant == "Файл":
+            print("Введите путь до файла: ")
+            file_path = input()
+            if r.checkExistFileOrDir(file_path):
+                r.fillFile(file_path, "00000000000000000000000000000000000000000000")
+                r.removeFile(file_path)
+                if r.checkExistFileOrDir(file_path):
+                    print("Не удалось удалить файл " + file_path)
+                else:
+                    print("Файл " + file_path + " был успешно удален")
+            else:
+                print("Такого файла не существует")
+                continue
+        elif variant == "папка" or variant == "Папка":
+            print("Введите путь до папки: ")
+            dir_path = input()
+            if r.checkExistFileOrDir(dir_path):
+                r.removeDir(dir_path)
+                if r.checkExistFileOrDir(dir_path):
+                    print("Не удалось удалить папку " + dir_path)
+                else:
+                    print("Папка " + dir_path + " был успешно удален")
+            else:
+                print("Такого каталога не существует")
+                continue
+        else:
+            break
