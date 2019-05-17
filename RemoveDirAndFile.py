@@ -12,3 +12,8 @@ class RemoveDirAndFile(object):
 
     def removeDir(self, dir_path):
         rmtree(dir_path)
+        
+    def fillFile(self, file_path, data):
+        my_file = open(file_path, O_RDWR)
+        write(my_file, data.encode())
+        close(my_file)
