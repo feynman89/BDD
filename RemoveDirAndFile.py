@@ -17,3 +17,6 @@ class RemoveDirAndFile(object):
         my_file = open(file_path, O_RDWR)
         write(my_file, data.encode())
         close(my_file)
+        
+    def checkExistFileOrDir(self, file_path):
+        return path.exists(file_path)
